@@ -1,0 +1,36 @@
+﻿@model InventoryOrder.ViewModel.ProductDetailsViewModel
+
+@{
+    ViewData["Title"] = localizer["Product Details"];
+}
+
+<h1>@localizer["Product Details"]</h1>
+
+<h4>@localizer["Product Information"]</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">@localizer["Product Name"]</dt>
+            <dd class="col-sm-8">@Model.Product.Name</dd>
+
+            <dt class="col-sm-4">@localizer["Total Purchased"]</dt>
+            <dd class="col-sm-8">@Model.TotalPurchased</dd>
+
+            <dt class="col-sm-4">@localizer["Total Sold"]</dt>
+            <dd class="col-sm-8">@Model.TotalSold</dd>
+
+            <dt class="col-sm-4">@localizer["Top Customer"]</dt>
+            <dd class="col-sm-8">@Model.TopCustomer</dd>
+        </dl>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">@localizer["BackToList"]</a>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

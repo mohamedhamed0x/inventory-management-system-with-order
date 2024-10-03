@@ -1,0 +1,75 @@
+﻿@model InventoryOrder.ViewModel.OrderViewModel
+
+@{
+    ViewData["Title"] = localizer["Order Details"];
+}
+
+<h1>@localizer["Order Details"]</h1>
+
+<h4>@localizer["Order Information"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <dl class="row">
+            <dt class="col-sm-4">@localizer["Order ID"]</dt>
+            <dd class="col-sm-8">@Model.Order.OrderID</dd>
+
+            <dt class="col-sm-4">@localizer["Customer Name"]</dt>
+            <dd class="col-sm-8">@Model.CustomerName</dd>
+
+            <dt class="col-sm-4">@localizer["Warehouse Name"]</dt>
+            <dd class="col-sm-8">@Model.WarehouseName</dd>
+
+            <dt class="col-sm-4">@localizer["Total Amount"]</dt>
+            <dd class="col-sm-8">@Model.Order.TotalAmount</dd>
+
+            <dt class="col-sm-4">@localizer["Total Pay"]</dt>
+            <dd class="col-sm-8">@Model.Order.TotalPay</dd>
+
+            <dt class="col-sm-4">@localizer["Total Refund"]</dt>
+            <dd class="col-sm-8">@Model.Order.TotalRefund</dd>
+
+            <dt class="col-sm-4">@localizer["Order Date"]</dt>
+            <dd class="col-sm-8">@Model.Order.OrderDate.ToString("yyyy-MM-dd")</dd>
+        </dl>
+    </div>
+</div>
+
+<h4>@localizer["Order Details"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@localizer["Product Name"]</th>
+                    <th>@localizer["Quantity"]</th>
+                    <th>@localizer["Price"]</th>
+                    <th>@localizer["Total"]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detail in Model.OrderDetails)
+                {
+                    <tr>
+                        <td>@detail.Product.Name</td>
+                        <td>@detail.Quantity</td>
+                        <td>@detail.Price</td>
+                        <td>@(detail.Quantity * detail.Price)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">@localizer["BackToList"]</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+}

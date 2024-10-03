@@ -1,0 +1,38 @@
+﻿@model InventoryOrder.ViewModel.WarehouseDetailsViewModel
+
+@{
+    ViewData["Title"] = localizer["Warehouse Details"];
+}
+
+<h1>@localizer["Warehouse Details"]</h1>
+
+<h4>@localizer["Warehouse Information"]</h4>
+<hr />
+
+<div>
+    <h5>@localizer["Warehouse Name"]: @Model.WarehouseName</h5>
+    <h5>@localizer["Location"]: @Model.Location</h5>
+</div>
+
+<h4>@localizer["Products in Warehouse"]</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@localizer["Product Name"]</th>
+            <th>@localizer["Quantity"]</th> <!-- تأكد من إضافة هذا العمود -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.QuantityInStock</td> <!-- افترض أن لديك خاصية `Quantity` في كائن Product -->
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">@localizer["BackToList"]</a>
+</div>

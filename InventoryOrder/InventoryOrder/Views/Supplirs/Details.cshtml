@@ -1,0 +1,85 @@
+﻿@model InventoryOrder.Models.intity.Supplier
+
+@{
+    ViewData["Title"] = localizer["Details"];
+}
+
+<h1>@localizer["Details"]</h1>
+
+<h4>@localizer["Supplier"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <!--Centered details view-->
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" readonly /> <!-- Readonly to prevent editing -->
+        </div>
+        <div class="form-group">
+            <label asp-for="Address" class="control-label"></label>
+            <input asp-for="Address" class="form-control" readonly /> <!-- Readonly to prevent editing -->
+        </div>
+        <div class="form-group">
+            <label asp-for="Phone" class="control-label"></label>
+            <input asp-for="Phone" class="form-control" readonly /> <!-- Readonly to prevent editing -->
+        </div>
+        <div class="form-group">
+            <label asp-for="AccountBalance" class="control-label"></label>
+            <input asp-for="AccountBalance" class="form-control" readonly /> <!-- Readonly to prevent editing -->
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SupplierID" class="btn btn-warning">@localizer["Edit"]</a> <!-- Button for editing -->
+    <a asp-action="Index" class="btn btn-secondary">@localizer["Back To List"]</a> <!-- Styled link -->
+</div>
+
+<h3>@localizer["Purchases"]</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@localizer["Purchase Number"]</th>
+            <th>@localizer["Purchase Date"]</th>
+            <th>@localizer["Total Amount"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Purchase in Model.Purchases)
+        {
+            <tr>
+                <td>@Purchase.PurchaseID</td>
+                <td>@Purchase.PurchaseDate.ToShortDateString()</td>
+                <td>@Purchase.TotalAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>@localizer["Payments"]</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@localizer["Payment Number"]</th>
+            <th>@localizer["Payment Date"]</th>
+            <th>@localizer["Amount"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var payment in Model.PaymentSuppliers)
+        {
+            <tr>
+                <td>@payment.PaymentSupplierID</td>
+                <td>@payment.Paymentdate.ToShortDateString()</td>
+                <td>@payment.Amount</td>
+         
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

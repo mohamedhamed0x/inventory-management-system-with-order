@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">@localizer["Dashboard"]</h1>
+
+    <div class="row">
+        <!-- Stats Cards -->
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-box"></i> @localizer["Total Orders"]</h5>
+                    <p class="card-text">100</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-cube"></i> @localizer["Total Products"]</h5>
+                    <p class="card-text">50</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-users"></i> @localizer["Total Customers"]</h5>
+                    <p class="card-text">30</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-calendar-day"></i> @localizer["New Orders Today"]</h5>
+                    <p class="card-text">5</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@localizer["Orders Overview"]</h5>
+                    <canvas id="ordersChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@localizer["Sales Overview"]</h5>
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const ctxOrders = document.getElementById('ordersChart').getContext('2d');
+        const ordersChart = new Chart(ctxOrders, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: '@localizer["Orders"]',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '@localizer["Number of Orders"]'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: '@localizer["Months"]'
+                        }
+                    }
+                }
+            }
+        });
+
+        const ctxSales = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(ctxSales, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: '@localizer["Sales"]',
+                    data: [65, 59, 80, 81, 56, 55],
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '@localizer["Sales Amount"]'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: '@localizer["Months"]'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+}

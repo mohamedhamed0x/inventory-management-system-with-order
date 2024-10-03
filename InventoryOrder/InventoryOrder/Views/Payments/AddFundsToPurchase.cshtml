@@ -1,0 +1,74 @@
+﻿@model InventoryOrder.ViewModel.SupplierAddFundsViewModel
+
+@{
+    ViewData["Title"] = localizer["Add Funds To Purchase"];
+}
+
+<div class="container mt-5">
+    <h1 class="text-primary">@localizer["Add Funds To Purchase"]</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="AddFundsToPurchase">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group" hidden>
+                    <label asp-for="PurchaseID" class="control-label"></label>
+                    <input asp-for="PurchaseID" class="form-control" readonly />
+                    <span asp-validation-for="PurchaseID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" hidden>
+                    <label asp-for="SupplierID" class="control-label"></label>
+                    <input asp-for="SupplierID" class="form-control" />
+                    <span asp-validation-for="SupplierID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SupplierName" class="control-label"></label>
+                    <input asp-for="SupplierName" class="form-control" readonly />
+                    <span asp-validation-for="SupplierName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TotalAmount" class="control-label"></label>
+                    <input asp-for="TotalAmount" class="form-control" readonly />
+                    <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TotalPay" class="control-label"></label>
+                    <input asp-for="TotalPay" class="form-control" readonly />
+                    <span asp-validation-for="TotalPay" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TotalRefund" class="control-label"></label>
+                    <input asp-for="TotalRefund" class="form-control" readonly />
+                    <span asp-validation-for="TotalRefund" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AmountToAdd" class="control-label"></label>
+                    <input asp-for="AmountToAdd" class="form-control" />
+                    <span asp-validation-for="AmountToAdd" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">@localizer["Create"]</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-secondary">@localizer["Back to List"]</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<InventoryOrder.ViewModel.PurchaseViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1> </h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">@localizer["Create New"]</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Purchase.PurchaseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Purchase.PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().SupplirName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Purchase.TotalAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().WarehouseName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchase.PurchaseID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchase.PurchaseDate.ToShortDateString())
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchase.SupplierID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchase.TotalAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchase.WarehouseID)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Purchases", new { id = item.Purchase.PurchaseID })" class="btn btn-warning btn-sm">
+                        @localizer["Edit"]
+                    </a> |
+                    <a href="@Url.Action("Delete", "Purchases", new { id = item.Purchase.PurchaseID })"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('@localizer["Are you sure you want to delete this purchase?"]');">
+                        @localizer["Delete"]
+                    </a> |
+                    <a href="@Url.Action("Details", "Purchases", new { id = item.Purchase.PurchaseID })" class="btn btn-info btn-sm">
+                        @localizer["Details"]
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

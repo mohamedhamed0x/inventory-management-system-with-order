@@ -1,0 +1,55 @@
+﻿@model InventoryOrder.Models.intity.Purchase
+
+@{
+    ViewData["Title"] = localizer["Edit"];
+}
+
+<h1>@localizer["Edit"]</h1>
+
+<h4>@localizer["Purchase"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden>
+                <label asp-for="PurchaseID" class="control-label"></label>
+                <input asp-for="PurchaseID" class="form-control" />
+                <span asp-validation-for="PurchaseID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PurchaseDate" class="control-label"></label>
+                <input asp-for="PurchaseDate" class="form-control" type="date" />
+                <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplierID" class="control-label"></label>
+                <input asp-for="SupplierID" class="form-control" />
+                <span asp-validation-for="SupplierID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalAmount" class="control-label"></label>
+                <input asp-for="TotalAmount" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WarehouseID" class="control-label"></label>
+                <input asp-for="WarehouseID" class="form-control" />
+                <span asp-validation-for="WarehouseID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" onclick="return confirm('@localizer["Are you sure you want to save changes?"]');">@localizer["Save"]</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">@localizer["BackToList"]</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

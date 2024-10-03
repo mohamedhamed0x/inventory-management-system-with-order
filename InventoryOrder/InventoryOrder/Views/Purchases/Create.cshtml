@@ -1,0 +1,67 @@
+﻿@model InventoryOrder.ViewModel.PurchaseViewModel
+
+<div class="invoice-container">
+    <h2>@localizer["Create Purchase"]</h2>
+
+    <form id="create-Purchase-form" method="post" asp-action="Create">
+        <div class="Purchase-details">
+            <div class="form-group">
+                <label for="SupplierID">@localizer["Supplier"]</label>
+                @Html.DropDownListFor(m => m.Purchase.SupplierID, ViewBag.Suppliers as SelectList, "Select a Supplier", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="WarehouseID">@localizer["Warehouse"]</label>
+                @Html.DropDownListFor(m => m.Purchase.WarehouseID, ViewBag.Warehouses as SelectList, "Select a Warehouse", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div id="products-section" class="product-section">
+            <h3>@localizer["Products"]</h3>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>@localizer["Product"]</th>
+                        <th>@localizer["Quantity"]</th>
+                        <th>@localizer["Price"]</th>
+                        <th>@localizer["Total Price"]</th>
+                        <th>@localizer["Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    @for (int i = 0; i < Model.PurchaseDetails.Count; i++)
+                    {
+                        <tr class="product-item">
+                            <td>
+                                @Html.DropDownListFor(m => m.PurchaseDetails[i].ProductID,
+                                         ViewBag.Products as SelectList,
+                                         "Select a Product",
+                                         new { @class = "product-select form-control" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.PurchaseDetails[i].Quantity, new { @class = "product-quantity form-control", type = "number", min = "1" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.PurchaseDetails[i].Price, new { @class = "product-price form-control", type = "number", step = "0.01" })
+                            </td>
+                            <td>
+                                <span class="product-total-price">@((Model.PurchaseDetails[i].Price * Model.PurchaseDetails[i].Quantity).ToString("F2"))</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger delete-product-button">@localizer["Delete"]</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button type="button" id="add-product-button" class="btn btn-primary">@localizer["Add Product"]</button>
+        </div>
+
+        <div class="Purchase-total">
+            <label>@localizer["Total Purchase Price"]</label>
+            <span id="total-Purchase-price">@Model.PurchaseDetails.Sum(od => od.Price * od.Quantity).ToString("F2")</span>
+        </div>
+
+        <button type="submit" class="btn btn-success">@localizer["Create Purchase"]</button>
+    </form>
+</div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<InventoryOrder.Models.intity.Supplier>
+
+@{
+    ViewData["Title"] = localizer["Index"];
+}
+
+<h1> </h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">@localizer["Create New"]</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountBalance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountBalance)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Suppliers", new { id = item.SupplierID })" class="btn btn-warning btn-sm">
+                        @localizer["Edit"]
+                    </a> |
+                    <a href="@Url.Action("Delete", "Suppliers", new { id = item.SupplierID })" class="btn btn-danger btn-sm">
+                        @localizer["Delete"]
+                    </a> |
+                    <a href="@Url.Action("Details", "Suppliers", new { id = item.SupplierID })" class="btn btn-info btn-sm">
+                        @localizer["Details"]
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

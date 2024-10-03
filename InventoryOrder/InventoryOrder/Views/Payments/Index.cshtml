@@ -1,0 +1,61 @@
+﻿@model dynamic
+
+
+    <div class="row">
+        <!-- عرض قائمة الأوامر -->
+        <div class="col-md-6">
+            <h3 class="text-primary">@localizer["Orders"]</h3>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>@localizer["Order ID"]</th>
+                        <th>@localizer["Customer Name"]</th>
+                        <th>@localizer["Total Refund"]</th>
+                        <th>@localizer["Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in ViewBag.Orders)
+                    {
+                        <tr>
+                            <td>@order.Order.OrderID</td>
+                            <td>@order.CustomerName</td>
+                            <td>@order.Order.TotalRefund</td>
+                            <td>
+                                <a class="btn btn-success" asp-action="AddFundsToOrder" asp-route-id="@order.Order.OrderID">@localizer["Add Funds"]</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- عرض قائمة المشتريات -->
+        <div class="col-md-6">
+            <h3 class="text-primary">@localizer["Purchases"]</h3>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>@localizer["Purchase ID"]</th>
+                        <th>@localizer["Supplier Name"]</th>
+                        <th>@localizer["Total Refund"]</th>
+                        <th>@localizer["Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var purchase in ViewBag.Purchases)
+                    {
+                        <tr>
+                            <td>@purchase.Purchase.PurchaseID</td>
+                            <td>@purchase.SupplierName</td>
+                            <td>@purchase.Purchase.TotalRefund</td>
+                            <td>
+                                <a class="btn btn-success" asp-action="AddFundsToPurchase" asp-route-id="@purchase.Purchase.PurchaseID">@localizer["Add Funds"]</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
