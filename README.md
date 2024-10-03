@@ -12,7 +12,7 @@
     <p>A Modern Solution for Managing Products, Orders, and Inventory</p>
 </header>
 
-<div class="container">
+
     <h2>About the Project</h2>
     <p>
         This project is a <strong>Warehouse Management System</strong> built using <code>ASP.NET MVC</code>. 
@@ -58,7 +58,7 @@
 
     <h2>Contact</h2>
     <p>For any inquiries, feel free to reach out via LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank">Your LinkedIn</a></p>
-</div>
+
 
 <footer>
     <p>&copy; 2024 Warehouse Management System. All rights reserved.</p>
