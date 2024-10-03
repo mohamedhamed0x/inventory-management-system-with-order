@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
 
@@ -12,14 +11,13 @@
     <p>A Modern Solution for Managing Products, Orders, and Inventory</p>
 </header>
 
-
-    <h2>About the Project</h2>
+<h2>About the Project</h2>
     <p>
         This project is a <strong>Warehouse Management System</strong> built using <code>ASP.NET MVC</code>. 
         It supports multilingual features, dynamic order management, and real-time updates of product information.
     </p>
 
-    <h2>Key Features</h2>
+<h2>Key Features</h2>
     <ul>
         <li>Multi-language support (English/Arabic) for a seamless experience across different regions.</li>
         <li>Order and product management with real-time updates and dynamic pricing.</li>
@@ -29,7 +27,7 @@
         <li>Supports real-time payment methods with detailed transaction tracking.</li>
     </ul>
 
-    <h2>Tech Stack</h2>
+<h2>Tech Stack</h2>
     <ul>
         <li><strong>Backend:</strong> ASP.NET MVC</li>
         <li><strong>Database:</strong> Entity Framework with SQL Server</li>
@@ -37,7 +35,7 @@
         <li><strong>Version Control:</strong> GitHub</li>
     </ul>
 
-    <h2>Setup Instructions</h2>
+<h2>Setup Instructions</h2>
     <p>To get started with the project, follow these steps:</p>
     <ol>
         <li>Clone the repository: <code>git clone https://github.com/mohamedhamed0x/inventory-management-system-with-order.git</code></li>
@@ -46,17 +44,12 @@
         <li>Run the project and open in your preferred browser.</li>
     </ol>
 
-    <h2>Screenshots</h2>
-    <p>Some screenshots of the system in action:</p>
-    <img src="screenshot1.png" alt="Dashboard Screenshot" width="100%" style="margin-bottom: 20px;">
-    <img src="screenshot2.png" alt="Order Management Screenshot" width="100%">
-
-    <h2>Contributing</h2>
+<h2>Contributing</h2>
     <p>
         Contributions are welcome! Please open a pull request or submit an issue on GitHub if you would like to contribute.
     </p>
 
-    <h2>Contact</h2>
+<h2>Contact</h2>
     <p>For any inquiries, feel free to reach out via LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank">Your LinkedIn</a></p>
 
 
