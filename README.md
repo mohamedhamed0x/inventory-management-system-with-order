@@ -1,48 +1,116 @@
-Warehouse Management System - ASP.NET MVC Project
-Overview
-This Warehouse Management System (WMS) is built using ASP.NET MVC and provides a comprehensive solution for managing orders, inventory, customers, and suppliers in a streamlined and efficient manner. The system supports both English and Arabic, enhancing usability across different regions. It also features real-time inventory management, dynamic order creation, multi-language support, and a clean, user-friendly interface.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Management System - README</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            margin: 20px auto;
+            max-width: 900px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
 
-Key Features
-Multi-Language Support: Fully supports English and Arabic with automatic RTL (Right-to-Left) layout adaptation.
-Inventory Management: Real-time inventory updates, stock adjustments, and detailed reports.
-Order Management: Dynamic order creation with product quantity and price updates without refreshing the page.
-Customer & Supplier Accounts: Tracks all payments and balances, whether in cash or installments.
-Financial Tracking: Detailed records of all payments with support for different payment methods.
-Product Insights: Displays total purchased and sold quantities, and top customers for each product.
-Technologies Used
-ASP.NET MVC
-Entity Framework
-Bootstrap for responsive UI
-SQL Server
-Multi-language support using .resx files
-Git for version control
-Getting Started
-Prerequisites
-Visual Studio 2022 or later
-.NET 6 SDK
-SQL Server
-Git
-Installation
-Clone the repository:
-bash
-نسخ الكود
-git clone https://github.com/your-repo/warehouse-management-system.git
-Navigate to the project directory:
-bash
-نسخ الكود
-cd warehouse-management-system
-Build the project:
-bash
-نسخ الكود
-dotnet build
-Run the project:
-bash
-نسخ الكود
-dotnet run
-Set up your database by running migrations:
-bash
-نسخ الكود
-dotnet ef database update
-Usage
-Once the system is running, you can manage orders, customers, products, and inventory through the intuitive web interface. All changes to inventory or orders are tracked, and the system supports dynamic updates for better user experience.
+<header>
+    <h1>Warehouse Management System</h1>
+    <p>A Modern Solution for Managing Products, Orders, and Inventory</p>
+</header>
 
+<div class="container">
+    <h2>About the Project</h2>
+    <p>
+        This project is a <strong>Warehouse Management System</strong> built using <code>ASP.NET MVC</code>. 
+        It supports multilingual features, dynamic order management, and real-time updates of product information.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+        <li>Multi-language support (English/Arabic) for a seamless experience across different regions.</li>
+        <li>Order and product management with real-time updates and dynamic pricing.</li>
+        <li>Comprehensive customer and supplier management, including tracking balances, payments, and installment plans.</li>
+        <li>Inventory management that automatically adjusts stock levels based on orders and purchases.</li>
+        <li>Responsive and interactive design with intuitive UI.</li>
+        <li>Supports real-time payment methods with detailed transaction tracking.</li>
+    </ul>
+
+    <h2>Tech Stack</h2>
+    <ul>
+        <li><strong>Backend:</strong> ASP.NET MVC</li>
+        <li><strong>Database:</strong> Entity Framework with SQL Server</li>
+        <li><strong>Frontend:</strong> HTML, CSS, Bootstrap, JavaScript</li>
+        <li><strong>Version Control:</strong> GitHub</li>
+    </ul>
+
+    <h2>Setup Instructions</h2>
+    <p>To get started with the project, follow these steps:</p>
+    <ol>
+        <li>Clone the repository: <code>git clone https://github.com/mohamedhamed0x/inventory-management-system-with-order.git</code></li>
+        <li>Open the project in Visual Studio.</li>
+        <li>Restore NuGet packages and build the solution.</li>
+        <li>Run the project and open in your preferred browser.</li>
+    </ol>
+
+    <h2>Screenshots</h2>
+    <p>Some screenshots of the system in action:</p>
+    <img src="screenshot1.png" alt="Dashboard Screenshot" width="100%" style="margin-bottom: 20px;">
+    <img src="screenshot2.png" alt="Order Management Screenshot" width="100%">
+
+    <h2>Contributing</h2>
+    <p>
+        Contributions are welcome! Please open a pull request or submit an issue on GitHub if you would like to contribute.
+    </p>
+
+    <h2>Contact</h2>
+    <p>For any inquiries, feel free to reach out via LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank">Your LinkedIn</a></p>
+</div>
+
+<footer>
+    <p>&copy; 2024 Warehouse Management System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
